@@ -30,7 +30,7 @@ def parse_unordered_list(lines, index):
     """
     html_lines = ["<ul>"]
 
-    # Process list items until a non-list item is encountered.
+    # Process unordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("- "):
         item_text = lines[index][2:].strip()
         html_lines.append(f"<li>{item_text}</li>")
@@ -47,7 +47,7 @@ def parse_ordered_list(lines, index):
     """
     html_lines = ["<ol>"]
 
-    #
+    # Process ordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("* "):
         item_text = lines[index][2:].strip()
         html_lines.append(f"<li>{item_text}</li>")
@@ -56,6 +56,22 @@ def parse_ordered_list(lines, index):
     html_lines.append("</ol>")
 
     return html_lines, index
+
+
+def parse_paragraph(lines, index):
+    """
+    Parse Markdown paragraphs and return the corresponding HTML.
+    """
+    paragraph_text = []
+
+    # Process paragraph lines until an empty line is encountered.
+    while index < len(lines) and lines[index].strip() != "":
+        paragraph_text.append(lines[index].strip())
+        index += 1
+
+    paragraph_html = "<p>\n" + "\n<br/>\n".join(paragraph_text) + "\n</p>"
+
+    return [paragraph_html], index
 
 
 def convert_markdown_to_html(markdown_file, html_file):
@@ -71,22 +87,30 @@ def convert_markdown_to_html(markdown_file, html_file):
 
     while index < len(lines):
         line = lines[index].strip()
+
         # Check if the line is a heading.
         if line.startswith("#"):
             html_lines.append(parse_heading(line))
             index += 1
+
         # Check if the line is an unordered list item.
         elif line.startswith("- "):
             parsed_lines, index = parse_unordered_list(lines, index)
             html_lines.extend(parsed_lines)
+
         # Check if the line is an ordered list item.
         elif line.startswith("* "):
             parsed_lines, index = parse_ordered_list(lines, index)
             html_lines.extend(parsed_lines)
-        # Treat the line as a normal text line.
-        else:
-            html_lines.append(line)
+
+        # Skip empty lines.
+        elif line == "":
             index += 1
+
+        # Treat the line as a paragraph.
+        else:
+            parsed_lines, index = parse_paragraph(lines, index)
+            html_lines.extend(parsed_lines)
 
     # Open the HTML file and write each line to it.
     with open(html_file, "w") as open_html_file:
