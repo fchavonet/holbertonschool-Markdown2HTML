@@ -4,8 +4,9 @@
 Markdown to HTML converter.
 """
 
-import sys
+import hashlib
 import os
+import sys
 
 
 def parse_heading(line):
@@ -34,6 +35,8 @@ def parse_unordered_list(lines, index):
     while index < len(lines) and lines[index].startswith("- "):
         # Parse bold and emphasis text within the list item.
         item_text = parse_bold_and_emphasis(lines[index][2:].strip())
+        # Parse custom syntax within the list item.
+        item_text = parse_custom_syntax(item_text)
 
         html_lines.append(f"<li>{item_text}</li>")
         index += 1
@@ -53,6 +56,8 @@ def parse_ordered_list(lines, index):
     while index < len(lines) and lines[index].startswith("* "):
         # Parse bold and emphasis text within the list item.
         item_text = parse_bold_and_emphasis(lines[index][2:].strip())
+        # Parse custom syntax within the list item.
+        item_text = parse_custom_syntax(item_text)
 
         html_lines.append(f"<li>{item_text}</li>")
         index += 1
@@ -72,6 +77,8 @@ def parse_paragraph(lines, index):
     while index < len(lines) and lines[index].strip() != "":
         # Parse bold and emphasis text within the list item.
         line = parse_bold_and_emphasis(lines[index].strip())
+        # Parse custom syntax within the list item.
+        line = parse_custom_syntax(line)
 
         paragraph_text.append(line)
         index += 1
@@ -92,6 +99,29 @@ def parse_bold_and_emphasis(line):
     # Replace emphasis text with <em> tags.
     while "__" in line:
         line = line.replace("__", "<em>", 1).replace("__", "</em>", 1)
+
+    return line
+
+
+def parse_custom_syntax(line):
+    """
+    Parse custom syntax for MD5 and removing 'c' characters.
+    """
+    # Replace content in [[ ]] with its MD5 hash.
+    while "[[" in line and "]]" in line:
+        start_index = line.index("[[")
+        end_index = line.index("]]", start_index)
+        content = line[start_index + 2:end_index]
+        md5_hash = hashlib.md5(content.encode()).hexdigest()
+        line = line[:start_index] + md5_hash + line[end_index + 2:]
+
+    # Remove "c" and "C" characters from content in (( )).
+    while "((" in line and "))" in line:
+        start_index = line.index("((")
+        end_index = line.index("))", start_index)
+        content = line[start_index + 2:end_index]
+        content_no_c = content.replace("c", "").replace("C", "")
+        line = line[:start_index] + content_no_c + line[end_index + 2:]
 
     return line
 
