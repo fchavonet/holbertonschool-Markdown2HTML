@@ -24,6 +24,23 @@ def parse_heading(line):
     return f"<h{heading_level}>{heading_text}</h{heading_level}>"
 
 
+def parse_unordered_list(lines, index):
+    """
+    Parse a Markdown unordered list and return the corresponding HTML.
+    """
+    html_lines = ["<ul>"]
+
+    # Process list items until a non-list item is encountered.
+    while index < len(lines) and lines[index].startswith("- "):
+        item_text = lines[index][2:].strip()
+        html_lines.append(f"<li>{item_text}</li>")
+        index += 1
+
+    html_lines.append("</ul>")
+
+    return html_lines, index
+
+
 def convert_markdown_to_html(markdown_file, html_file):
     """
     Convert a Markdown file to HTML and save it to the output file.
@@ -33,13 +50,22 @@ def convert_markdown_to_html(markdown_file, html_file):
         lines = open_markdown_file.readlines()
 
     html_lines = []
+    index = 0
 
-    for line in lines:
-        line = line.strip()
+    while index < len(lines):
+        line = lines[index].strip()
+        # Check if the line is a heading.
         if line.startswith("#"):
             html_lines.append(parse_heading(line))
+            index += 1
+        # Check if the line is an unordered list item.
+        elif line.startswith("- "):
+            parsed_lines, index = parse_unordered_list(lines, index)
+            html_lines.extend(parsed_lines)
+        # Treat the line as a normal text line.
         else:
             html_lines.append(line)
+            index += 1
 
     # Open the HTML file and write each line to it.
     with open(html_file, "w") as open_html_file:
@@ -49,7 +75,7 @@ def convert_markdown_to_html(markdown_file, html_file):
 
 def main():
     """
-    Handle command-line arguments and check the existence of the Markdown file.
+    Handle `args`, check file existence and convert Markdown to HTML.
     """
     try:
         # Check if the correct number of arguments is provided.
