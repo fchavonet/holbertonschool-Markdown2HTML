@@ -27,11 +27,15 @@
 
 ## 📄 <span id="description">Description</span>
 
-Markdown is awesome! All the `README.md` files are made in Markdown, but do you know how GitHub renders them?
+Markdown is awesome!
+<br>
+All the `README.md` files are made in Markdown, but do you know how GitHub renders them?
 <br>
 This project is designed to help me understand and implement the conversion of Markdown to HTML.
 <br>
-I have created a Python script that takes a Markdown file as input and generates an HTML file as output. The script handles various Markdown features such as headings, unordered and ordered lists, paragraphs, bold and emphasis text, and custom text transformations.
+I have created a Python script that takes a Markdown file as input and generates an HTML file as output.
+<br>
+The script handles various Markdown features such as headings, unordered and ordered lists, paragraphs, bold and emphasis text, and custom text transformations.
 <br>
 Feel free to test it out yourself and see how it works!
 
@@ -491,7 +495,7 @@ cat test.html
 
 <details>
     <summary>
-		<b>Click to see the expected result:</b>
+		<b>Click here to see the expected result ↓ </b>
 	</summary>
 	<br>
 
