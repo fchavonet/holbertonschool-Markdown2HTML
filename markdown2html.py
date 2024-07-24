@@ -74,10 +74,14 @@ def parse_paragraph(lines, index):
     paragraph_text = []
 
     # Process paragraph lines until an empty line is encountered.
-    while index < len(lines) and lines[index].strip() != "":
-        # Parse bold and emphasis text within the list item.
+    while index < len(lines) \
+            and lines[index].strip() != "" \
+            and not lines[index].startswith("#")\
+            and not lines[index].startswith("- ")\
+            and not lines[index].startswith("* "):
+        # Parse bold and emphasis text within the paragraph.
         line = parse_bold_and_emphasis(lines[index].strip())
-        # Parse custom syntax within the list item.
+        # Parse custom syntax within the paragraph.
         line = parse_custom_syntax(line)
 
         paragraph_text.append(line)
