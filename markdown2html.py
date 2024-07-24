@@ -41,6 +41,23 @@ def parse_unordered_list(lines, index):
     return html_lines, index
 
 
+def parse_ordered_list(lines, index):
+    """
+    Parse a Markdown ordered list and return the corresponding HTML.
+    """
+    html_lines = ["<ol>"]
+
+    #
+    while index < len(lines) and lines[index].startswith("* "):
+        item_text = lines[index][2:].strip()
+        html_lines.append(f"<li>{item_text}</li>")
+        index += 1
+
+    html_lines.append("</ol>")
+
+    return html_lines, index
+
+
 def convert_markdown_to_html(markdown_file, html_file):
     """
     Convert a Markdown file to HTML and save it to the output file.
@@ -61,6 +78,10 @@ def convert_markdown_to_html(markdown_file, html_file):
         # Check if the line is an unordered list item.
         elif line.startswith("- "):
             parsed_lines, index = parse_unordered_list(lines, index)
+            html_lines.extend(parsed_lines)
+        # Check if the line is an ordered list item.
+        elif line.startswith("* "):
+            parsed_lines, index = parse_ordered_list(lines, index)
             html_lines.extend(parsed_lines)
         # Treat the line as a normal text line.
         else:
