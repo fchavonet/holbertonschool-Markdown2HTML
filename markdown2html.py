@@ -196,7 +196,7 @@ def main():
         if not os.path.isfile(markdown_file):
             raise FileNotFoundError(f"Missing {markdown_file}")
 
-        # Convert the Markdown file to HTML and save the result to the output. 
+        # Convert the Markdown file to HTML and save the result to the output.
         convert_markdown_to_html(markdown_file, html_file)
 
         # If no errors, exit with status 0 (success).
