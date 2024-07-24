@@ -114,7 +114,7 @@ def parse_bold_and_emphasis(line):
 
 def parse_custom_syntax(line):
     """
-    Parse custom syntax for MD5 and removing 'c' characters.
+    Parse custom syntax for MD5 and removing "c" characters.
     (Disclaimer: made with ChetGPT)
     """
     # Replace content in [[ ]] with its MD5 hash.
@@ -196,6 +196,7 @@ def main():
         if not os.path.isfile(markdown_file):
             raise FileNotFoundError(f"Missing {markdown_file}")
 
+        # Convert the Markdown file to HTML and save the result to the output. 
         convert_markdown_to_html(markdown_file, html_file)
 
         # If no errors, exit with status 0 (success).
