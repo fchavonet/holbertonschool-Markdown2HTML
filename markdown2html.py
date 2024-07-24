@@ -22,6 +22,11 @@ def parse_heading(line):
     # Extract the heading text after the "#" characters.
     heading_text = line[heading_level:].strip()
 
+    # Parse bold and emphasis text within the the heading text.
+    heading_text = parse_bold_and_emphasis(heading_text)
+    # Parse custom syntax within the the heading text.
+    heading_text = parse_custom_syntax(heading_text)
+
     return f"<h{heading_level}>{heading_text}</h{heading_level}>"
 
 
@@ -33,9 +38,9 @@ def parse_unordered_list(lines, index):
 
     # Process unordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("- "):
-        # Parse bold and emphasis text within the list item.
+        # Parse bold and emphasis text within the unordered list item.
         item_text = parse_bold_and_emphasis(lines[index][2:].strip())
-        # Parse custom syntax within the list item.
+        # Parse custom syntax within the unordered list item.
         item_text = parse_custom_syntax(item_text)
 
         html_lines.append(f"<li>{item_text}</li>")
@@ -54,9 +59,9 @@ def parse_ordered_list(lines, index):
 
     # Process ordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("* "):
-        # Parse bold and emphasis text within the list item.
+        # Parse bold and emphasis text within the ordered list item.
         item_text = parse_bold_and_emphasis(lines[index][2:].strip())
-        # Parse custom syntax within the list item.
+        # Parse custom syntax within the ordered list item.
         item_text = parse_custom_syntax(item_text)
 
         html_lines.append(f"<li>{item_text}</li>")
@@ -110,6 +115,7 @@ def parse_bold_and_emphasis(line):
 def parse_custom_syntax(line):
     """
     Parse custom syntax for MD5 and removing 'c' characters.
+    (Disclaimer: made with ChetGPT)
     """
     # Replace content in [[ ]] with its MD5 hash.
     while "[[" in line and "]]" in line:
