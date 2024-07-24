@@ -32,7 +32,9 @@ def parse_unordered_list(lines, index):
 
     # Process unordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("- "):
-        item_text = lines[index][2:].strip()
+        # Parse bold and emphasis text within the list item.
+        item_text = parse_bold_and_emphasis(lines[index][2:].strip())
+
         html_lines.append(f"<li>{item_text}</li>")
         index += 1
 
@@ -49,7 +51,9 @@ def parse_ordered_list(lines, index):
 
     # Process ordered list items until a non-list item is encountered.
     while index < len(lines) and lines[index].startswith("* "):
-        item_text = lines[index][2:].strip()
+        # Parse bold and emphasis text within the list item.
+        item_text = parse_bold_and_emphasis(lines[index][2:].strip())
+
         html_lines.append(f"<li>{item_text}</li>")
         index += 1
 
@@ -66,12 +70,30 @@ def parse_paragraph(lines, index):
 
     # Process paragraph lines until an empty line is encountered.
     while index < len(lines) and lines[index].strip() != "":
-        paragraph_text.append(lines[index].strip())
+        # Parse bold and emphasis text within the list item.
+        line = parse_bold_and_emphasis(lines[index].strip())
+
+        paragraph_text.append(line)
         index += 1
 
     paragraph_html = "<p>\n" + "\n<br/>\n".join(paragraph_text) + "\n</p>"
 
     return [paragraph_html], index
+
+
+def parse_bold_and_emphasis(line):
+    """
+    Parse bold and emphasis text and return the corresponding HTML.
+    """
+    # Replace bold text with <b> tags.
+    while "**" in line:
+        line = line.replace("**", "<b>", 1).replace("**", "</b>", 1)
+
+    # Replace emphasis text with <em> tags.
+    while "__" in line:
+        line = line.replace("__", "<em>", 1).replace("__", "</em>", 1)
+
+    return line
 
 
 def convert_markdown_to_html(markdown_file, html_file):
