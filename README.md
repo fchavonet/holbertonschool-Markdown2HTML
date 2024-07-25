@@ -1,4 +1,4 @@
-<img  height="50px" align="right" src="https://raw.githubusercontent.com/fchavonet/holbertonschool-web-development/main/resources/images/holberton_school_logo.png" alt="Holberton School logo">
+<img  height="50px" align="right" src="https://raw.githubusercontent.com/fchavonet/fchavonet/main/resources/images/logo-holberton_school.png" alt="Holberton School logo">
 
 # Markdown to HTML
 
