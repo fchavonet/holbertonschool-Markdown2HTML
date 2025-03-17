@@ -1,12 +1,14 @@
-<img  height="50px" align="right" src="https://raw.githubusercontent.com/fchavonet/fchavonet/main/resources/images/logo-holberton_school.png" alt="Holberton School logo">
+<img  height="50px" align="right" src="https://raw.githubusercontent.com/fchavonet/fchavonet/main/assets/images/logo-holberton_school.png" alt="Holberton School logo">
 
 # Markdown to HTML
 
+## 🔖 Table of contents
+
 <details>
         <summary>
-		CLICK TO ENLARGE 😇
+            CLICK TO ENLARGE 😇
         </summary>
-	    📄 <a href="#description">Description</a>
+        📄 <a href="#description">Description</a>
         <br>
         🎓 <a href="#objectives">Objectives</a>
         <br>
@@ -18,7 +20,7 @@
         <br>
         📂 <a href="#files-description">Files description</a>
         <br>
-        💻 <a href="#installation">Installation</a>
+        💻 <a href="#installation_and_how_to_use">Installation and how to use</a>
         <br>
         ♥️ <a href="#thanks">Thanks</a>
         <br>
@@ -456,40 +458,49 @@ Spacing and new lines between HTML tags don’t need to be exactly this one.
 
 | **FILE**           | **DESCRIPTION**                                                 |
 | :----------------: | --------------------------------------------------------------- |
-| `README.md`        | The readme file you are currently reading 😉.                   |
 | `markdown2html.py` | Python script to convert Markdown to HTML.                      |
-| `test.html`        | Generated HTML file from the sample Markdown file.              |
 | `test.md`          | Sample Markdown file for testing the `markdown2html.py` script. |
+| `test.html`        | Generated HTML file from the sample Markdown file.              |
+| `README.md`        | The readme file you are currently reading 😉.                   |
 
-## 💻 <span id="installation">Installation</span>
+## 💻 <span id="installation_and_how_to_use">Installation and how to use</span>
 
-- Ensure Python is installed on your system.
+**Installation:**
 
 1. Clone this repository:
     - Open your preferred Terminal.
     - Navigate to the directory where you want to clone the repository.
     - Run the following command:
-```
+
+``` bash
 git clone https://github.com/fchavonet/holbertonschool-Markdown2HTML.git
 ```
 
 2. Open the repository you've just cloned.
 
-3. Run the script:
+3. Create a virtual environment:
 
-*On Windows:*
-```
-python markdown2html.py test.md test.html
+``` bash
+python -m venv venv
 ```
 
-*On Linux or MacOS:*
+4. Activate the virtual environment:
+
+``` bash
+source venv/bin/activate
 ```
+
+**How to use:**
+
+1. Run the script:
+
+``` bash
 python3 markdown2html.py test.md test.html
 ```
 
-4. Check the new HTML file:
+2. Check the new HTML file:
 
-```
+``` bash
 cat test.html
 ```
 
@@ -566,7 +577,7 @@ To directly view the HTML page result, click [here](https://fchavonet.github.io/
 
 ## ♥️ <span id="thanks">Thanks</span>
 
-A big thank you to all my Holberton School peers for their help and support throughout these projects.
+- A big thank you to all my Holberton School peers for their help and support throughout these projects.
 
 ## 👷 <span id="authors">Authors</span>
 

@@ -13,6 +13,7 @@ def parse_heading(line):
     """
     Parse Markdown headings and return the corresponding HTML.
     """
+
     heading_level = 0
 
     # Count the number of "#" characters to determine the heading level.
@@ -34,6 +35,7 @@ def parse_unordered_list(lines, index):
     """
     Parse a Markdown unordered list and return the corresponding HTML.
     """
+
     html_lines = ["<ul>"]
 
     # Process unordered list items until a non-list item is encountered.
@@ -55,6 +57,7 @@ def parse_ordered_list(lines, index):
     """
     Parse a Markdown ordered list and return the corresponding HTML.
     """
+
     html_lines = ["<ol>"]
 
     # Process ordered list items until a non-list item is encountered.
@@ -76,6 +79,7 @@ def parse_paragraph(lines, index):
     """
     Parse Markdown paragraphs and return the corresponding HTML.
     """
+
     paragraph_text = []
 
     # Process paragraph lines until an empty line is encountered.
@@ -101,6 +105,7 @@ def parse_bold_and_emphasis(line):
     """
     Parse bold and emphasis text and return the corresponding HTML.
     """
+
     # Replace bold text with <b> tags.
     while "**" in line:
         line = line.replace("**", "<b>", 1).replace("**", "</b>", 1)
@@ -117,6 +122,7 @@ def parse_custom_syntax(line):
     Parse custom syntax for MD5 and removing "c" characters.
     (Disclaimer: made with ChetGPT)
     """
+
     # Replace content in [[ ]] with its MD5 hash.
     while "[[" in line and "]]" in line:
         start_index = line.index("[[")
@@ -140,6 +146,7 @@ def convert_markdown_to_html(markdown_file, html_file):
     """
     Convert a Markdown file to HTML and save it to the output file.
     """
+
     # Open the Markdown file for reading.
     with open(markdown_file, "r") as open_markdown_file:
         lines = open_markdown_file.readlines()
@@ -184,6 +191,7 @@ def main():
     """
     Handle `args`, check file existence and convert Markdown to HTML.
     """
+
     try:
         # Check if the correct number of arguments is provided.
         if len(sys.argv) != 3:
