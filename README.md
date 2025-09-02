@@ -1,55 +1,55 @@
-<img  height="50px" align="right" src="https://raw.githubusercontent.com/fchavonet/fchavonet/main/assets/images/logo-holberton_school.png" alt="Holberton School logo">
+<img height="50" align="right" src="https://raw.githubusercontent.com/fchavonet/fchavonet/refs/heads/main/assets/images/logo-holberton_school.webp" alt="Holberton School logo">
 
-# Markdown to HTML
+# Markdown To HTML
 
 ## 🔖 Table of contents
 
 <details>
-        <summary>
-            CLICK TO ENLARGE 😇
-        </summary>
-        📄 <a href="#description">Description</a>
-        <br>
-        🎓 <a href="#objectives">Objectives</a>
-        <br>
-        📋 <a href="#requirements">Requirements</a>
-        <br>
-        📝 <a href="#instructions">Instructions</a>
-        <br>
-        🔨 <a href="#tech-stack">Tech stack</a>
-        <br>
-        📂 <a href="#files-description">Files description</a>
-        <br>
-        💻 <a href="#installation_and_how_to_use">Installation and how to use</a>
-        <br>
-        ♥️ <a href="#thanks">Thanks</a>
-        <br>
-        👷 <a href="#authors">Authors</a>
+    <summary>
+        CLICK TO ENLARGE 😇
+    </summary>
+    <a href="#description">Description</a>
+    <br>
+    <a href="#objectives">Objectives</a>
+    <br>
+    <a href="#requirements">Requirements</a>
+    <br>
+    <a href="#instructions">Instructions</a>
+    <br>
+    <a href="#tech-stack">Tech stack</a>
+    <br>
+    <a href="#files-description">Files description</a>
+    <br>
+    <a href="#installation_and_how_to_use">Installation and how to use</a>
+    <br>
+    <a href="#thanks">Thanks</a>
+    <br>
+    <a href="#authors">Authors</a>
 </details>
 
-## 📄 <span id="description">Description</span>
+## <span id="description">Description</span>
 
 Markdown is awesome!
-<br>
+
 All the `README.md` files are made in Markdown, but do you know how GitHub renders them?
-<br>
+
 This project is designed to help me understand and implement the conversion of Markdown to HTML.
-<br>
+
 I have created a Python script that takes a Markdown file as input and generates an HTML file as output.
-<br>
+
 The script handles various Markdown features such as headings, unordered and ordered lists, paragraphs, bold and emphasis text, and custom text transformations.
-<br>
+
 Feel free to test it out yourself and see how it works!
 
-## 🎓 <span id="objectives">Objectives</span>
+## <span id="objectives">Objectives</span>
 
-At the end of this project, I had to be able to explain to anyone, **without the help of Google** :
+At the end of this project, I should be able to explain to anyone, **without the help of Google**:
 
 - What is Markdown?
 - How GitHub renders the README.md files.
 - How to convert Markdown to HTML.
 
-## 📋 <span id="requirements">Requirements</span>
+## <span id="requirements">Requirements</span>
 
 - All my files will be interpreted/compiled on Ubuntu 18.04 LTS using `python3` (version 3.7 or higher).
 - The first line of all my files should be exactly `#!/usr/bin/python3`.
@@ -59,7 +59,7 @@ At the end of this project, I had to be able to explain to anyone, **without the
 - All my modules should be documented: `python3 -c 'print(__import__("my_module").__doc__)'`.
 - My code should not be executed when imported (by using `if __name__ == "__main__":`).
 
-## 📝 <span id="instructions">Instructions</span>
+## <span id="instructions">Instructions</span>
 
 <details>
 	<summary>
@@ -446,7 +446,7 @@ Spacing and new lines between HTML tags don’t need to be exactly this one.
 <hr>
 </details>
 
-## 🔨 <span id="tech-stack">Tech stack</span>
+## <span id="tech-stack">Tech stack</span>
 
 <p align="left">
     <img src="https://img.shields.io/badge/PYTHON-3776ab?logo=python&logoColor=white&style=for-the-badge" alt="Python badge">
@@ -455,16 +455,16 @@ Spacing and new lines between HTML tags don’t need to be exactly this one.
     <img src="https://img.shields.io/badge/VS CODE-007acc?logo=data:image/svg+xml;base64,PCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4KDTwhLS0gVXBsb2FkZWQgdG86IFNWRyBSZXBvLCB3d3cuc3ZncmVwby5jb20sIFRyYW5zZm9ybWVkIGJ5OiBTVkcgUmVwbyBNaXhlciBUb29scyAtLT4KPHN2ZyBmaWxsPSIjZmZmZmZmIiB3aWR0aD0iODAwcHgiIGhlaWdodD0iODAwcHgiIHZpZXdCb3g9Ii0wLjUgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KDTxnIGlkPSJTVkdSZXBvX2JnQ2FycmllciIgc3Ryb2tlLXdpZHRoPSIwIi8+Cg08ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KDTxnIGlkPSJTVkdSZXBvX2ljb25DYXJyaWVyIj4KDTxwYXRoIGQ9Im0xNy44NTggMjMuOTk4LTkuNzcxLTkuNDg0LTUuODY2IDQuNDY1LTIuMjIxLTEuMTE1di0xMS43MTlsMi4yMzQtMS4xMjEgNS44NyA0LjQ2OSA5Ljc0Ny05LjQ5MyA1LjU4NyAyLjIzOXYxOS41MzFsLTUuNTc5IDIuMjN6bS0uNTYzLTE2LjE4Ni01LjU3NyA0LjE3MyA1LjU4IDQuMjAyem0tMTQuNTA3IDEuNjg1djUuMDE2bDIuNzg3LTIuNTI1eiIvPgoNPC9nPgoNPC9zdmc+&logoColor=white&style=for-the-badge" alt="VS Code badge">
 <p>
 
-## 📂 <span id="files-description">File description</span>
+## <span id="files-description">Files description</span>
 
-| **FILE**           | **DESCRIPTION**                                                 |
+| **FILES**          | **DESCRIPTION**                                                 |
 | :----------------: | --------------------------------------------------------------- |
 | `markdown2html.py` | Python script to convert Markdown to HTML.                      |
 | `test.md`          | Sample Markdown file for testing the `markdown2html.py` script. |
 | `test.html`        | Generated HTML file from the sample Markdown file.              |
-| `README.md`        | The readme file you are currently reading 😉.                   |
+| `README.md`        | The README file you are currently reading 😉.                   |
 
-## 💻 <span id="installation_and_how_to_use">Installation and how to use</span>
+## <span id="installation_and_how_to_use">Installation and how to use</span>
 
 **Installation:**
 
@@ -482,7 +482,7 @@ git clone https://github.com/fchavonet/holbertonschool-Markdown2HTML.git
 3. Create a virtual environment:
 
 ``` bash
-python -m venv venv
+python3 -m venv venv
 ```
 
 4. Activate the virtual environment:
@@ -572,15 +572,14 @@ Use this <b>Markdown to HTML</b> converter wisely!
 </p>
 ```
 </details>
-<br>
 
 To directly view the HTML page result, click [here](https://fchavonet.github.io/holbertonschool-Markdown2HTML/test.html).
 
-## ♥️ <span id="thanks">Thanks</span>
+## <span id="thanks">Thanks</span>
 
-- A big thank you to all my Holberton School peers for their help and support throughout these projects.
+- A big thank you to all my Holberton School peers for their help and support throughout this project.
 
-## 👷 <span id="authors">Authors</span>
+## <span id="authors">Authors</span>
 
 **Fabien CHAVONET**
-- Github: [@fchavonet](https://github.com/fchavonet)
+- GitHub: [@fchavonet](https://github.com/fchavonet)
